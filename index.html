@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Growskills Projects</title>
+</head>
+<body>
+    <header>
+        <h1>Growskills Projects</h1>
+    </header>
+
+    <main>
+        <section id="formulario">
+            <h2>Adicionar Novo Projeto</h2>
+            <input type="text" id="nome-projeto" placeholder="Nome do Projeto" required>
+            <input type="text" id="responsavel" placeholder="Responsável" required>
+            <input type="number" id="semanas" placeholder="Duração (semanas)" required min="1">
+            <button id="adicionar">Adicionar Projeto</button>
+        </section>
+
+        <section id="lista-projetos">
+            <h2>Projetos Atuais</h2>
+            <ul id="projetos"></ul>
+        </section>
+    </main>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
