@@ -1,10 +1,10 @@
-// Função para carregar projetos do localStorage
+
 function carregarProjetos() {
   const projetos = JSON.parse(localStorage.getItem('projetos')) || [];
   projetos.forEach(projeto => adicionarProjetoNaLista(projeto));
 }
 
-// Função para adicionar um projeto na lista
+
 function adicionarProjetoNaLista(projeto) {
   const projetosUl = document.getElementById('projetos');
   const li = document.createElement('li');
@@ -16,22 +16,21 @@ function adicionarProjetoNaLista(projeto) {
   
   projetosUl.appendChild(li);
   
-  // Adicionar funcionalidade de concluir
+
   li.querySelector('.concluir').addEventListener('click', function() {
       li.querySelector('span').classList.toggle('feito');
       this.textContent = this.textContent === 'Concluir' ? 'Feito' : 'Concluir';
-      this.disabled = true; // Desabilitar o botão após conclusão
+      this.disabled = true; 
   });
 }
 
-// Função para salvar projetos no localStorage
+
 function salvarProjeto(nome, responsavel, semanas) {
   const projetos = JSON.parse(localStorage.getItem('projetos')) || [];
   projetos.push({ nome, responsavel, semanas });
   localStorage.setItem('projetos', JSON.stringify(projetos));
 }
 
-// Evento de clique para adicionar projeto
 document.getElementById('adicionar').addEventListener('click', function() {
   const nomeProjeto = document.getElementById('nome-projeto').value;
   const responsavel = document.getElementById('responsavel').value;
@@ -41,7 +40,7 @@ document.getElementById('adicionar').addEventListener('click', function() {
       adicionarProjetoNaLista({ nome: nomeProjeto, responsavel, semanas });
       salvarProjeto(nomeProjeto, responsavel, semanas);
 
-      // Resetar campos do formulário
+
       document.getElementById('nome-projeto').value = '';
       document.getElementById('responsavel').value = '';
       document.getElementById('semanas').value = '';
@@ -50,5 +49,4 @@ document.getElementById('adicionar').addEventListener('click', function() {
   }
 });
 
-// Carregar projetos ao iniciar a página
 carregarProjetos();
